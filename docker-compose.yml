@@ -1,0 +1,17 @@
+version: '2.3'
+
+services:
+  angular : #name of the web services
+    build: DemoProject #path
+    ports:
+      - "4200:4200"
+  express : #name of the web services
+    build: DemoServer #path
+    ports:
+      - "7000:7000"
+    links:
+      - database
+  database : #name of the web services
+    image: mongo
+    ports:
+      - "27017:27017"
